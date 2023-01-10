@@ -1,0 +1,115 @@
+<html>
+    <head> <title> UEFA CHAMPIONS LEAGUE</title> <head></head>
+<style>
+     h2 {text-align: center;color:white;font-family: sans-serif;font-size: 150%;}
+    body{text-align: center;}
+    .image{
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;}
+
+.navbar {
+  background-color: rgb(20, 20, 70);
+  overflow: hidden;
+  vertical-align:top;
+  width: 100%;
+  border-radius: 5px;
+}
+.navbar a{
+    font-family: sans-serif;
+}
+
+
+.navbar a:hover {
+  background-color: rgb(163, 172, 239);
+  color:  rgb(59, 1, 1);
+}
+
+
+.navbar a.active {
+  background-color: #550555;
+  color: white;
+}
+table{
+    font-family: sans-serif;
+}
+.contentblock{
+    background-color: rgb(15, 8, 80); 
+  background-color: rgba(28, 14, 90, 0.6); 
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 68%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  font-family:sans-serif;
+  border-radius: 25px;
+}
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  vertical-align: top;
+}
+table, th, td {
+  border: 1px solid;
+  border-radius: 25px;
+  text-align: center;
+  
+}
+
+
+
+</style>
+    <div class="navbar">
+        <a class="active" href="/">Home</a>
+        <a href="/about">About Us</a>
+    </div>
+    <div class="image">
+        <img src="{{url_for('static', filename='ucl.jpg')}}" />
+    </div>
+          <body>
+              <h2> Update</h2>
+              <div class="contentblock">
+              {% for x in data %}
+              <form method="POST" action="/update/{{x.0}}">
+                  <table border='1' align='center' width=300px style="color:white">
+                  
+                  <tr>
+                  <td> Nos.: </td>
+                  <td><input type="text" name="Nos." value="{{x.0}}"/></td>	
+                  </tr>
+                  <tr>
+                  <td> Player: </td>
+                  <td><input type="text" name="Player" value="{{x.1}}"/></td>	
+                  </tr>
+                  <tr>
+                  <td> Team: </td>
+                  <td><input type="text" name="Team" value="{{x.2}}"/></td>	
+                  </tr>
+                  <tr>
+                  <td>Goals:</td>
+                  <td><input type="text" name="Goals" value="{{x.3}}"/></td>
+                  </tr>
+                  <tr>
+                  <td><input type="submit" name="Update"/></td>	
+                  </tr>
+                  
+                  </table>
+                  
+          </form>
+          {%endfor%}
+          </div>
+          
+          </body>
+       
+      
+</html>

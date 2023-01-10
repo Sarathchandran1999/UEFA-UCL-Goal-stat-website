@@ -1,0 +1,128 @@
+<html>
+<style>
+h2 {text-align: center;color:white;font-family: sans-serif;font-size: 150%; }
+p{text-align: center;color:white;font-family: sans-serif;}
+div{text-align: center;background-color:white;font-family:sans-serif;}
+body{text-align: center;}
+.bg-image{
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;}
+.navbar {
+background-color: rgb(20, 20, 70);
+overflow: hidden;
+vertical-align:top;
+width: 100%;
+border-radius: 5px;
+}
+.contentblock{
+  background-color: rgb(15, 8, 80); 
+  background-color: rgba(28, 14, 90, 0.6); 
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 68%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+  font-family:sans-serif;
+  border-radius: 25px;
+
+}
+.contentblock a{
+    color: white;
+    text-decoration: none;   
+}
+.contentblock button{
+    background-color: #550555;
+}
+table, th, td {
+  border: 1px solid;
+  border-radius: 25px;
+  text-align: center; 
+
+}
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  vertical-align: top;
+  border-radius: 25px;
+}
+.navbar a:hover {
+  background-color: rgb(163, 172, 239);
+  color: rgb(59, 1, 1);
+}
+
+table{ font-family: sans-serif;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #303030;
+  color: white;
+  text-align: center;
+}
+button{
+  border-radius: 25px;
+}
+.contentblock table td a{
+  text-decoration: underline red;
+}
+.navbar li a {
+  background-color: #550555;
+  color: white;
+}
+
+</style>
+	<head> <title> UEFA CHAMPIONS LEAGUE TOP GOALS</title> <head>
+	<div class="navbar">
+        <a class="active" href="/">Home</a>
+        <a href="/about">About Us</a>
+       <li> <a href="/top">Top Goals</a></li>
+    </div>
+    <div class="image">
+        <img src="{{url_for('static', filename='ucl.jpg')}}" />
+    </div>
+	
+	
+	
+
+	</div>
+	<div class="contentblock">
+	<body>
+		<h2>UEFA CHAMPIONS LEAGUE FOOTBALL 2022/23</h2>
+        
+		
+			<table border='3' align='center' width=600px style="color:white">
+			<tr>
+			<th> Nos. </th>
+			<th> Player </th>
+			<th> Team </th>
+			<th> Goals </th>
+			</tr>
+			
+			{% for i in data %}			
+				<tr>
+				<td>{{i.0}}</td>
+				<td>{{i.1}}</td>	
+				<td>{{i.2}}</td>
+                <td>{{i.3}}</td>
+				</tr>
+			{% endfor %}
+			</table>
+
+
+
+    </body>
+    </div>
+		
